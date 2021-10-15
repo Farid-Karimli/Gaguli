@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+}
+main {
+  font-family: "Raleway", sans-serif;
+}
+
+/* -------------------------------------------------------------------------*/
+/* Header */
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*background-color: aquamarine;*/
+  height: 20vh;
+  background-image: url("assets/images/football_pitch.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.header h2 {
+  padding: 0.1vw;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.header img {
+  z-index: 1;
+}
+
+.navbar {
+  background-color: gray;
+  /*margin-top: 1rem;*/
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  border: 2px solid black;
+  z-index: 0;
+}
+
+.navbar ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.navbar li {
+  line-height: 1vh;
+  height: 1vh;
+  margin: 0 10vw;
+  display: inline-block;
+}
+
+/* -------------------------------------------------------------------------*/
+/* General CSS Rules */
+
+.wrapper {
+  margin: 5vh;
+  text-align: center;
+}
+.wrapper * {
+  margin-top: 2vh;
+}
+.wrapper p {
+  margin: 2vh;
+}
+.body div {
+  border: 1px black solid;
+}
+.left-heading {
+  text-align: left;
+}
+
+.flex-row {
+  display: flex;
+  align-items: left;
+}
+
+.flex-row * {
+  margin: 1vw;
+}
+.logo-text * {
+  margin: 1vw;
+}
+
+.evenly {
+  display: flex;
+  justify-content: space-evenly;
+}
