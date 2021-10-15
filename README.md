@@ -18,3 +18,8 @@
 #### Seasonal Statistics
 1. Current season record
 2. Top scorer and assister of the club
+
+### Created using: 
+1. React
+2. Node JS
+3. Express 
