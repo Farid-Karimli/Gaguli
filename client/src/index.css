@@ -139,3 +139,12 @@ a:hover {
 .css-1tbfido-MuiSlider-root.Mui-disabled {
   color: black;
 }
+
+.overallStats {
+  align-items: left;
+  text-align: left;
+}
+
+.overallStats p.indent {
+  margin-left: 10%;
+}

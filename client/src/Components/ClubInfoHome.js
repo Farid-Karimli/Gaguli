@@ -45,7 +45,7 @@ const ClubInfoHome = ({ stats }) => {
           <h4 className="left-heading">
             Current division: {data.currentDivision}
           </h4>
-          <h4 className="left-heading">Titles won: {data.titlesWon}</h4>
+
           <h4 className="left-heading">
             Record:
             {data.recentResults && <RecentResults form={data.recentResults} />}
@@ -106,6 +106,18 @@ const ClubInfoHome = ({ stats }) => {
             ></img>
             <p> Best season finish: {data.bestDivision} </p>
           </div>
+        </div>
+      </div>
+      <div className="flex-row overallStats">
+        <div className="">
+          <h3 className="left-heading">Overall Club Stats</h3>
+          <p className="indent">Seasons played: {data.seasons}</p>
+          <p className="indent">Titles Won: {data.titlesWon}</p>
+          <p className="indent">Highest points total: {data.bestPoints}</p>
+          <p className="indent">Promotions: {data.promotions}</p>
+          <p className="indent">Relegations: {data.relegations}</p>
+          <p className="indent">Total goals for: {data.goals}</p>
+          <p className="indent">Total goals against: {data.goalsAgainst}</p>
         </div>
       </div>
     </div>
