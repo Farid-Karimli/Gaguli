@@ -10,7 +10,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   const [apiResponse, setApiResponse] = useState("");
-  const [stats, setStats] = useState({});
 
   const [memberStats, setMemberStats] = useState({});
   const [clubInfo, setClubInfo] = useState({});
@@ -26,8 +25,8 @@ function App() {
       redirect: "follow",
     };
 
-    await fetch(
-      "http://localhost:9000/getAPIResponse/memberStats", //TODO figure this out
+    /*  await fetch(
+      "http://localhost:9000/getAPIResponse/memberStats", //TODO change endpoint
       requestOptions
     )
       .then((res) => res.json())
@@ -36,57 +35,54 @@ function App() {
       });
 
     await fetch(
-      "http://localhost:9000/getAPIResponse/clubInfo", //TODO figure this out
+      "http://localhost:9000/getAPIResponse/clubInfo", //TODO change endpoint
       requestOptions
     )
       .then((res) => res.json())
       .then((res) => {
         setClubInfo({ clubInfo: res });
       });
-
+ */
     await fetch(
-      "http://localhost:9000/getAPIResponse/seasonalStats", //TODO figure this out
+      "http://localhost:9000/getAPIResponse/seasonalStats",
       requestOptions
     )
       .then((res) => res.json())
       .then((res) => {
         //console.log(`res: ${res}`);
-        console.log("seasonalStats", res);
-        const seasonalStats = res[0];
+        //console.log("seasonalStats", res);
+        /* const seasonalStats = res[0];
         for (const [key, value] of Object.entries(seasonalStats)) {
           console.log(`${key}: ${value}`);
-        }
-        setSeasonalStats({ seasonalStats: res });
+        } */
+        setSeasonalStats({ seasonalStats: res[0] });
       });
 
     //return apiResponse;
   };
-  //console.log("memberStats", memberStats);
-  useEffect(() => callAPI(), []);
+  //useEffect(() => callAPI(), []);
 
   return (
     <Router>
       <main>
         <Header />
         <Navbar />
-        {/*<Landing />*/}
-        <ClubInfoHome
+
+        {/*  <ClubInfoHome
           memberStats={memberStats}
           clubInfo={clubInfo}
           seasonalStats={seasonalStats}
-        />
-        {/*<Link to="/clubinfo">ClubInfo</Link>*/}
+        /> */}
       </main>
 
-      {/*<Switch>
+      <Switch>
         <Route path="/clubinfo">
-          <ClubInfoHome />
+          <ClubInfoHome stats={seasonalStats} />
         </Route>
-
         <Route path="/">
           <Landing />
         </Route>
-      </Switch>*/}
+      </Switch>
     </Router>
   );
 }

@@ -12,6 +12,7 @@ import {
   faHistory,
   faInfo,
 } from "@fortawesome/free-solid-svg-icons";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const Landing = () => {
   return (
@@ -24,7 +25,9 @@ const Landing = () => {
           <Row>
             <Col md={3}>
               <FontAwesomeIcon icon={faInfoCircle} />
-              <h4>Club Info and Stats</h4>
+              <Link to="/clubinfo">
+                <h4>Club Info and Stats</h4>
+              </Link>
               <p>
                 General information about the club, as well in-depth stats for
                 each player. Compare players with ease using our compare tools

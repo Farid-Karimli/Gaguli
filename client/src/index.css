@@ -4,7 +4,12 @@
 main {
   font-family: "Raleway", sans-serif;
 }
-
+a {
+  color: black;
+}
+a:hover {
+  color: black;
+}
 /* -------------------------------------------------------------------------*/
 /* Header */
 
@@ -36,6 +41,7 @@ main {
   padding-bottom: 1vh;
   border: 2px solid black;
   z-index: 0;
+  font-size: 1rem;
 }
 
 .navbar ul {
@@ -85,4 +91,47 @@ main {
 .evenly {
   display: flex;
   justify-content: space-evenly;
+}
+
+/* ------------------------------- */
+
+.division-logo {
+  width: 240px;
+  height: 25vh;
+  margin: 0;
+}
+.matchForm {
+  width: 49.33vw;
+  height: 6.3vh;
+}
+.matchForm p {
+  display: inline-block;
+  margin: 0;
+  width: 4.9vw;
+  height: 5.7vh;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 5vh;
+}
+
+.loss {
+  background-color: red;
+  font-style: white;
+}
+.win {
+  background-color: green;
+  font-style: white;
+}
+.tie {
+  background-color: gray;
+  font-style: white;
+}
+
+/* Seasons */
+.season {
+  margin: 0;
+}
+
+.current-season {
+  margin: 0;
 }
