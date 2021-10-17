@@ -35,52 +35,7 @@ const ClubInfoHome = ({ stats }) => {
   console.log("data:", data);
   console.log("recent results:", data.recentResults);
   useEffect(() => callAPI(), []);
-  const marks = [
-    {
-      value: 0,
-      label: 0,
-    },
-    {
-      value: 1,
-      label: 1,
-    },
-    {
-      value: 2,
-      label: 2,
-    },
-    {
-      value: 3,
-      label: 3,
-    },
-    {
-      value: 4,
-      label: 4,
-    },
-    {
-      value: 5,
-      label: 5,
-    },
-    {
-      value: 6,
-      label: 6,
-    },
-    {
-      value: 7,
-      label: 7,
-    },
-    {
-      value: 8,
-      label: 8,
-    },
-    {
-      value: 9,
-      label: 9,
-    },
-    {
-      value: 10,
-      label: 10,
-    },
-  ];
+
   return (
     <div className="wrapper">
       <div className="flex-row">
@@ -90,7 +45,7 @@ const ClubInfoHome = ({ stats }) => {
           <h4 className="left-heading">
             Current division: {data.currentDivision}
           </h4>
-          <h4 className="left-heading">Titles won: {data.recentResults}</h4>
+          <h4 className="left-heading">Titles won: {data.titlesWon}</h4>
           <h4 className="left-heading">
             Record:
             {data.recentResults && <RecentResults form={data.recentResults} />}
@@ -105,38 +60,51 @@ const ClubInfoHome = ({ stats }) => {
             <h4>Current Season</h4>
             <img
               className="division-logo"
-              src={
-                "https://media.contentapi.ea.com/content/dam/eacom/fifa/pro-clubs/divisioncrest9.png"
-              }
+              src={`https://media.contentapi.ea.com/content/dam/eacom/fifa/pro-clubs/divisioncrest${data.currentDivision}.png`}
               alt="(division logo here)"
             ></img>
             {/*`${data.points}`*/}
             {data.points && (
               <Slider
+                className="divisionSlider"
                 disabled
                 defaultValue={data.points}
                 max={10}
                 size="medium"
                 aria-label={8}
-                marks={[{ value: data.points, label: data.points }]}
+                marks={[
+                  { value: data.points, label: data.points },
+                  { value: 0, label: 0 },
+                  { value: 10 },
+                ]}
                 sx={{
                   width: "60%",
-                  color: "black",
+                  color: "success.main",
+                  ".MuiSlider-track": {
+                    color: "black",
+                  },
+                  ".MuiSlider-thumb": {
+                    color: "black",
+                  },
+                  ".MuiSlider-mark": {
+                    color: "black",
+                    backgroundColor: "black",
+                    height: "12px",
+                  },
                   left: "-5%;",
                 }}
               />
             )}
-            <p> Division progress </p>
-          </div>
-          <div className="season all-seasons">
-            <h4>All Seasons</h4>
-            <img src="" alt="(division logo here)"></img>
-            <p>(League points bar here)</p>
+            <p> Points </p>
           </div>
           <div className="season best-seasons">
             <h4>Best Season</h4>
-            <img src="" alt="(division logo here)"></img>
-            <p>(League points bar here)</p>
+            <img
+              className="division-logo"
+              src={`https://media.contentapi.ea.com/content/dam/eacom/fifa/pro-clubs/divisioncrest${data.bestDivision}.png`}
+              alt="best division finish"
+            ></img>
+            <p> Best season finish: {data.bestDivision} </p>
           </div>
         </div>
       </div>

@@ -135,3 +135,7 @@ a:hover {
 .current-season {
   margin: 0;
 }
+
+.css-1tbfido-MuiSlider-root.Mui-disabled {
+  color: black;
+}
