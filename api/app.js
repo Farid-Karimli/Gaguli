@@ -41,7 +41,7 @@ app.get("/getAPIResponse/memberStats", (req, res) => {
   //res.set("Referer", "https://www.ea.com");
   api_helper
     .make_API_call(
-      "https://proclubs.ea.com/api/fifa/members/stats?platform=ps4&clubId=21228964"
+      "https://proclubs.ea.com/api/fifa/members/stats?platform=ps4&clubId=552898"
     )
     .then((response) => {
       res.json(response);

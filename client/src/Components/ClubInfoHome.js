@@ -3,12 +3,13 @@ import { useState, useEffect } from "react";
 import Slider from "@mui/material/Slider";
 import logo from "./../assets/images/club_logo.jpeg";
 import RecentResults from "./RecentResults";
+import Members from "./Members";
 /*
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container"; 
 */
-
+const divisionPoints = { 10: 12, 9: 13, 1: 23, 2: 21, 5: 19, 4: 19, 3: 21 };
 const ClubInfoHome = ({ stats }) => {
   const [data, setData] = useState({});
 
@@ -32,8 +33,6 @@ const ClubInfoHome = ({ stats }) => {
       });
   };
 
-  console.log("data:", data);
-  console.log("recent results:", data.recentResults);
   useEffect(() => callAPI(), []);
 
   return (
@@ -63,7 +62,7 @@ const ClubInfoHome = ({ stats }) => {
               src={`https://media.contentapi.ea.com/content/dam/eacom/fifa/pro-clubs/divisioncrest${data.currentDivision}.png`}
               alt="(division logo here)"
             ></img>
-            {/*`${data.points}`*/}
+
             {data.points && (
               <Slider
                 className="divisionSlider"
@@ -108,8 +107,8 @@ const ClubInfoHome = ({ stats }) => {
           </div>
         </div>
       </div>
-      <div className="flex-row overallStats">
-        <div className="">
+      <div className="flex-row space-around">
+        <div className="overallStats align-left">
           <h3 className="left-heading">Overall Club Stats</h3>
           <p className="indent">Seasons played: {data.seasons}</p>
           <p className="indent">Titles Won: {data.titlesWon}</p>
@@ -119,6 +118,7 @@ const ClubInfoHome = ({ stats }) => {
           <p className="indent">Total goals for: {data.goals}</p>
           <p className="indent">Total goals against: {data.goalsAgainst}</p>
         </div>
+        <Members />
       </div>
     </div>
   );

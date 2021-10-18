@@ -88,9 +88,15 @@ a:hover {
   margin: 1vw;
 }
 
+.space-around {
+  gap: 35%;
+}
 .evenly {
   display: flex;
   justify-content: space-evenly;
+}
+.align-left {
+  align-items: left;
 }
 
 /* ------------------------------- */

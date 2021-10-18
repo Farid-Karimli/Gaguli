@@ -49,12 +49,6 @@ function App() {
     )
       .then((res) => res.json())
       .then((res) => {
-        //console.log(`res: ${res}`);
-        //console.log("seasonalStats", res);
-        /* const seasonalStats = res[0];
-        for (const [key, value] of Object.entries(seasonalStats)) {
-          console.log(`${key}: ${value}`);
-        } */
         setSeasonalStats({ seasonalStats: res[0] });
       });
 
@@ -67,12 +61,6 @@ function App() {
       <main>
         <Header />
         <Navbar />
-
-        {/*  <ClubInfoHome
-          memberStats={memberStats}
-          clubInfo={clubInfo}
-          seasonalStats={seasonalStats}
-        /> */}
       </main>
 
       <Switch>

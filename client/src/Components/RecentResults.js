@@ -21,7 +21,7 @@ const RecentResults = ({ form }) => {
         } else {
           return (
             <p className="tie" key={index}>
-              T
+              D
             </p>
           );
         }
