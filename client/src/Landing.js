@@ -18,7 +18,7 @@ const Landing = () => {
   return (
     <div className="wrapper">
       <div className="greeting">
-        <h1>Welcome to the official website of FC Gaguli!</h1>
+        <h1>Welcome to the official website of Azerbaijan FC</h1>
         <h5>Here you will find:</h5>
 
         <Container fluid>

@@ -68,13 +68,13 @@ const ClubInfoHome = ({ stats }) => {
                 className="divisionSlider"
                 disabled
                 defaultValue={data.points}
-                max={10}
+                max={divisionPoints[data.currentDivision]}
                 size="medium"
                 aria-label={8}
                 marks={[
                   { value: data.points, label: data.points },
                   { value: 0, label: 0 },
-                  { value: 10 },
+                  { value: divisionPoints[data.currentDivision] },
                 ]}
                 sx={{
                   width: "60%",
