@@ -54,8 +54,22 @@ app.get("/getAPIResponse/clubInfo", (req, res) => {
   //res.set("Referer", "https://www.ea.com");
   api_helper
     .make_API_call(
-      "https://proclubs.ea.com/api/fifa/clubs/info?matchType=gameType13&platform=ps4&clubIds=21228964"
+      "https://proclubs.ea.com/api/fifa/clubs/info?matchType=gameType13&platform=ps4&clubIds=552898"
     )
+    .then((response) => {
+      res.json(response);
+    })
+    .catch((error) => {
+      res.send(error);
+    });
+});
+app.get("/getAPIResponse/clubInfo/:id", (req, res) => {
+  //res.set("Referer", "https://www.ea.com");
+  api_helper
+    .make_API_call(
+      `https://proclubs.ea.com/api/fifa/clubs/info?matchType=gameType13&platform=ps4&clubIds=${req.params.id}`
+    )
+
     .then((response) => {
       res.json(response);
     })

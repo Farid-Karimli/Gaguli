@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { useState, useEffect } from "react";
 
-const Member = ({ player }) => {
-  const [playerStats, setPlayer] = useState(player);
-
+const Member = ({ stats }) => {
   return (
-    <div>
-      <h3> {player && player.name} </h3>
+    <div className="member">
+      <h4>{stats.name}</h4>
+      <p>Position: {stats.favoritePosition}</p>
+      <p>Goals: {stats.goals}</p>
+      <p>Assists: {stats.assists}</p>
     </div>
   );
 };

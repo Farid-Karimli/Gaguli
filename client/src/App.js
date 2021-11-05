@@ -5,14 +5,11 @@ import Header from "./Header";
 import Navbar from "./Navbar";
 import Landing from "./Landing";
 import ClubInfoHome from "./Components/ClubInfoHome";
+import Fixtures from "./Components/Fixtures";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+// eslint-disable-next-line
 function App() {
-  const [apiResponse, setApiResponse] = useState("");
-
-  const [memberStats, setMemberStats] = useState({});
-  const [clubInfo, setClubInfo] = useState({});
   const [seasonalStats, setSeasonalStats] = useState({});
 
   const callAPI = async () => {
@@ -25,24 +22,6 @@ function App() {
       redirect: "follow",
     };
 
-    /*  await fetch(
-      "http://localhost:9000/getAPIResponse/memberStats", //TODO change endpoint
-      requestOptions
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        setMemberStats({ memberStats: res });
-      });
-
-    await fetch(
-      "http://localhost:9000/getAPIResponse/clubInfo", //TODO change endpoint
-      requestOptions
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        setClubInfo({ clubInfo: res });
-      });
- */
     await fetch(
       "http://localhost:9000/getAPIResponse/seasonalStats",
       requestOptions
@@ -51,10 +30,8 @@ function App() {
       .then((res) => {
         setSeasonalStats({ seasonalStats: res[0] });
       });
-
-    //return apiResponse;
   };
-  //useEffect(() => callAPI(), []);
+  useEffect(() => callAPI(), []);
 
   return (
     <Router>
@@ -66,6 +43,9 @@ function App() {
       <Switch>
         <Route path="/clubinfo">
           <ClubInfoHome stats={seasonalStats} />
+        </Route>
+        <Route path="/fixtures">
+          {seasonalStats && <Fixtures stats={seasonalStats} />}
         </Route>
         <Route path="/">
           <Landing />

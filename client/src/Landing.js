@@ -1,18 +1,16 @@
-import React, { Component } from "react";
-import { useState, useEffect } from "react";
+// eslint-disable-next-line
+import React from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faSearch,
   faCalendarAlt,
   faVideo,
   faInfoCircle,
   faHistory,
-  faInfo,
 } from "@fortawesome/free-solid-svg-icons";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Landing = () => {
   return (
@@ -36,7 +34,9 @@ const Landing = () => {
             </Col>
             <Col md={3}>
               <FontAwesomeIcon icon={faCalendarAlt} />
-              <h4>Latest Results</h4>
+              <Link to="/fixtures">
+                <h4>Latest Results</h4>
+              </Link>
               <p>
                 Couldn't catch the last game? View the results of the latest
                 fixtures, goalscorers and match stats.{" "}
