@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import logo from "./../assets/images/club_logo.jpeg";
 // src="https://fifa21.content.easports.com/fifa/fltOnlineAssets/05772199-716f-417d-9fe0-988fa9899c4d/2021/fifaweb/crests/256x256/l99060315.png"
 const Fixture = ({ opponent }) => {
+  console.log("opponent:", opponent);
   return (
     <div className="fixture">
       <div className="flex-row-element">

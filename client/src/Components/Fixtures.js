@@ -18,6 +18,10 @@ const Fixtures = ({ stats }) => {
       .then((res) => res.json())
       .then((res) => {
         console.log("Res:", res);
+        if (res.id == null) {
+          return "Error";
+        }
+
         return res[id].name;
       });
   };
@@ -34,6 +38,19 @@ const Fixtures = ({ stats }) => {
     "lastOpponent9",
   ];
 
+  const getClubNames =  () => {
+    var clubNames = []
+    clubNames = keys.map(async(key) => {
+      if (opponents[key] !== "-1") {
+        var clubName = getClubName(opponents[key]);
+        if (clubName == "Error") {
+          clubName = "Disbanded";
+        }
+        console.log("clubName:", clubName);
+        return clubName
+  }
+
+
   console.log("opponents:", opponents);
   return (
     <div className="wrapper">
@@ -41,7 +58,10 @@ const Fixtures = ({ stats }) => {
       {opponents &&
         keys.map((key) => {
           if (opponents[key] !== "-1") {
-            const clubName = getClubName(opponents[key]);
+            var clubName = getClubName(opponents[key]);
+            if (clubName == "Error") {
+              clubName = "Disbanded";
+            }
             console.log("clubName:", clubName);
             return <Fixture opponent={clubName} />;
           }
